@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+    <context:property-placeholder location="datosEmpresa.propiedades"/>
+    
+    <bean id="miInforme" class="es.pildoras.IoC.Informe"></bean>
+    <!-- Creación de dependencia mediante constructor -->
+    <bean id="miEmpleado" class="es.pildoras.IoC.JefeEmpleado" 
+          init-method="metodoInicial" destroy-method="metodoDestroy">
+        <constructor-arg ref="miInforme"></constructor-arg>
+         
+    </bean>
+   
+        
+</beans>
